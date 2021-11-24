@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Register Form</title>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxTEsmzjEQBwZjXqHEX8D0te-bVifssQeeABRdh_KKkUbecDWBzI69U3QUvmemwHT3V/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</head>
+
+<body>
+    <form name="google-sheet">
+        <table>
+            <tr>
+                <td>Name :</td>
+                <td><input type="text" name="username" placeholder="Name" required></td>
+            </tr>
+            <tr>
+                <td>Password :</td>
+                <td><input type="password" name="password" placeholder="password" required></td>
+            </tr>
+            <tr>
+                <td>Gender :</td>
+                <td>
+                    <input type="radio" name="gender" value="m" required>Male
+                    <input type="radio" name="gender" value="f" required>Female
+                </td>
+            </tr>
+            <tr>
+                <td>Email :</td>
+                <td><input type="email" name="email" placeholder="email" required></td>
+            </tr>
+            <tr>
+                <td>Phone no :</td>
+                <td>
+                    <select name="phoneCode" required>
+      <option selected hidden value="">Select Code</option>
+      <option value="+91">+91</option>
+      <option value="+92">+92</option>
+      <option value="+93">+93</option>
+      <option value="+94">+94</option>
+      <option value="+95">+95</option>
+      <option value="+96">+96</option>
+     </select>
+                    <input type="phone" name="phone" required>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" name="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
